@@ -6,6 +6,7 @@ import { useCities } from "../contexts/CitiesContext"
 
 
 
+
 function CountryList() {
     const { cities, isLoading } = useCities()
 
@@ -30,5 +31,6 @@ function CountryList() {
     </ul>
   )
 }
+
 
 export default CountryList
