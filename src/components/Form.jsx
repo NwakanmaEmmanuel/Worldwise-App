@@ -58,7 +58,7 @@ function Form() {
           const res = await fetch(
             `${BASE_URL}?latitude=${lat}&longitude=${lng}`
           )
-          const data = res.json();
+          const data = await res.json();
           console.log(data);
 
           if (!data.countryCode)
@@ -99,7 +99,7 @@ async function handleSubmit(e) {
   navigate("/app/cities")
 }
 
-if (isLoadingGeocoding) return <Spinnner/>
+if (isLoadingGeocoding) return <Spinner/>
 
 if (!lat && !lng)
   return <Message message="Start by clicking somewhere on the map" />
@@ -113,7 +113,7 @@ if (geoCodingError) return <Message message={geoCodingError} />
     onSubmit={handleSubmit}
     >
       <div className={styles.row}>
-        <label htmlFor="cityName">City Nmae</label>
+        <label htmlFor="cityName">City Name</label>
         <input 
           id='cityName'
           onChange={(e) => setCityName(e.target.value)}

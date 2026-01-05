@@ -9,7 +9,7 @@ import CityList from "./components/CityList";
 import CountryList from "./components/CountryList"
 import City from "./components/City"
 import Form from './components/Form'
-import SpinnnerFullPage from './components/SpinnnerFullPage'
+import SpinnerFullPage from './components/SpinnerFullPage'
 
 // import Product from "./pages/Product";
 // import Pricing from "./pages/Pricing";
@@ -23,7 +23,7 @@ const Product  = lazy (() => import("./pages/Product"))
 const Pricing  = lazy (() => import("./pages/Pricing"))
 const Login   = lazy (() => import("./pages/Login"))
 const AppLayout  = lazy (() => import("./pages/AppLayout"))
-const PageNotFound   = lazy (() => import("./pages/pageNotFound"))
+const PageNotFound   = lazy (() => import("./pages/PageNotFound"))
 
 
 // dist/assets/index-59fcab9b.css   30.56 kB │ gzip:   5.14 kB
@@ -36,7 +36,7 @@ function App() {
     <AuthProvider>
       <CitiesProvider>
         <BrowserRouter>
-          <Suspense falback={<SpinnnerFullPage/>}>
+          <Suspense fallback={<SpinnerFullPage/>}>
             <Routes>
               <Route index element={<HomePage/>}/>
               <Route path="product" element={<Product/>}/>
@@ -55,11 +55,10 @@ function App() {
                 <Route path="cities/:id" element={<City/>}/>
                 <Route path="countries" element={<CountryList/>}/>
                 <Route path="form" element={<Form/>}/>
-                <Route path="pricing" element={<Pricing/>}/>
                </Route>
                <Route path="*" element={<PageNotFound/>} />
             </Routes>
-          </Suspense>
+          </Suspense> 
         </BrowserRouter>
       </CitiesProvider>
     </AuthProvider>
