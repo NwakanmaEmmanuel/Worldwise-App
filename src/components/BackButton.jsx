@@ -8,15 +8,15 @@ function BackButton() {
     const navigate = useNavigate();
 
   return (
-    <button
-     type="button"
+    <Button
+     type="back"
      onClick={(e) => {
         e.preventDefault();
         navigate(-1)
      }}
     >
         &larr; Back
-    </button>
+    </Button>
   )
 }
 
